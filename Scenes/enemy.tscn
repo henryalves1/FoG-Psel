@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://2qjor4t4mbti"]
+
+[ext_resource type="Script" uid="uid://sefikumwq2a0" path="res://Scripts/enemy.gd" id="1_hghv2"]
+[ext_resource type="Script" uid="uid://ct3x86rjy7hg1" path="res://Scripts/hitbox.gd" id="2_1f0kj"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_ne65n"]
+size = Vector3(5, 5, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hghv2"]
+radius = 2.0
+
+[node name="enemy" type="CharacterBody2D" unique_id=118423711]
+modulate = Color(0.6392157, 0, 0, 1)
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_hghv2")
+enemy_max_hit_points = 1
+enemy_speed = 10
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=125195582]
+position = Vector2(0, -1)
+rotation = -3.1415925
+mesh = SubResource("PrismMesh_ne65n")
+
+[node name="hitbox" type="Area2D" parent="." unique_id=703769486 groups=["enemies"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_1f0kj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1407515162]
+shape = SubResource("CircleShape2D_hghv2")
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="collided_with_bullet" from="hitbox" to="." method="_on_hitbox_collided_with_bullet"]

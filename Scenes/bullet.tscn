@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://be3dtacdj8fys"]
+
+[ext_resource type="Script" uid="uid://3iwku02shnsu" path="res://Scripts/bullet.gd" id="1_xjght"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4mw4s"]
+radius = 2.0
+height = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xjght"]
+radius = 2.0
+
+[node name="bullet" type="CharacterBody2D" unique_id=1613845337]
+scale = Vector2(2, 2)
+script = ExtResource("1_xjght")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1296473214]
+modulate = Color(1, 0.5803922, 0, 1)
+mesh = SubResource("SphereMesh_4mw4s")
+
+[node name="Timer" type="Timer" parent="." unique_id=1424069569]
+wait_time = 0.2
+autostart = true
+
+[node name="hitbox" type="Area2D" parent="." unique_id=340433407]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=500880261]
+shape = SubResource("CircleShape2D_xjght")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

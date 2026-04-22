@@ -1,13 +1,21 @@
 [gd_scene format=3 uid="uid://cnegvcp3as1yn"]
 
 [ext_resource type="PackedScene" uid="uid://7hmit3k5nihq" path="res://Scenes/player.tscn" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://bimxvpx5t4qo8" path="res://Scripts/game.gd" id="1_qxrlw"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ebmjs"]
 size = Vector2(20, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qxrlw"]
 
+[sub_resource type="Curve2D" id="Curve2D_qxrlw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -288, -162, 0, 0, 0, 0, 288, -162, 0, 0, 0, 0, 288, 162, 0, 0, 0, 0, -288, 162, 0, 0, 0, 0, -288, -162)
+}
+point_count = 5
+
 [node name="game" type="Node2D" unique_id=731236651]
+script = ExtResource("1_qxrlw")
 
 [node name="Player" parent="." unique_id=1431677279 instance=ExtResource("1_ebmjs")]
 position = Vector2(-2, -6)
@@ -21,3 +29,18 @@ mesh = SubResource("QuadMesh_ebmjs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=834884403]
 position = Vector2(80, 0)
 shape = SubResource("RectangleShape2D_qxrlw")
+
+[node name="enemy_timer" type="Timer" parent="." unique_id=1041603425]
+wait_time = 0.2
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2101825795]
+zoom = Vector2(2, 2)
+
+[node name="enemy_path" type="Path2D" parent="." unique_id=871195741]
+curve = SubResource("Curve2D_qxrlw")
+
+[node name="enemy_spawn_location" type="PathFollow2D" parent="enemy_path" unique_id=1546517937]
+position = Vector2(-288, -162)
+
+[connection signal="timeout" from="enemy_timer" to="." method="_on_enemy_timer_timeout"]
