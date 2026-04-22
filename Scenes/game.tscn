@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cnegvcp3as1yn"]
+
+[ext_resource type="PackedScene" uid="uid://7hmit3k5nihq" path="res://Scenes/player.tscn" id="1_ebmjs"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ebmjs"]
+size = Vector2(20, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxrlw"]
+
+[node name="game" type="Node2D" unique_id=731236651]
+
+[node name="Player" parent="." unique_id=1431677279 instance=ExtResource("1_ebmjs")]
+position = Vector2(-2, -6)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1359094738]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D" unique_id=229425525]
+position = Vector2(80, 0)
+mesh = SubResource("QuadMesh_ebmjs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=834884403]
+position = Vector2(80, 0)
+shape = SubResource("RectangleShape2D_qxrlw")
