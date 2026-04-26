@@ -11,11 +11,11 @@ radius = 2.0
 
 [node name="enemy" type="CharacterBody2D" unique_id=118423711]
 modulate = Color(0.6392157, 0, 0, 1)
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_hghv2")
-enemy_max_hit_points = 1
+enemy_max_hit_points = 4
 enemy_speed = 10
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=125195582]

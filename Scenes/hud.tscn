@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://w708osrjrkbv"]
+
+[ext_resource type="FontFile" uid="uid://cmeqenxtnpjq" path="res://Assets/cc.yal.5w5.block.otf" id="1_e0onf"]
+[ext_resource type="Script" uid="uid://isigakmduww3" path="res://Scripts/hud.gd" id="1_fccik"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fccik"]
+font = ExtResource("1_e0onf")
+font_size = 100
+
+[node name="HUD" type="CanvasLayer" unique_id=862572238]
+script = ExtResource("1_fccik")
+
+[node name="expLabel" type="Label" parent="." unique_id=2016860523]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_fccik")
+horizontal_alignment = 1
+vertical_alignment = 1

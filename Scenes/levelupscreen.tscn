@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bmh2hw6pojaku"]
+
+[ext_resource type="FontFile" uid="uid://cmeqenxtnpjq" path="res://Assets/cc.yal.5w5.block.otf" id="1_hme8f"]
+[ext_resource type="Script" uid="uid://idaph636go3m" path="res://Scripts/levelupscreen.gd" id="1_jki13"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_uhgbb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4fog5"]
+font = ExtResource("1_hme8f")
+font_size = 100
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dcvl2"]
+font = ExtResource("1_hme8f")
+font_size = 100
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[node name="lvlUpScreen" type="CanvasLayer" unique_id=1359174595]
+process_mode = 2
+layer = 2
+script = ExtResource("1_jki13")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1924686295]
+modulate = Color(0.11372549, 0.11372549, 1, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -343.0
+offset_top = -231.0
+offset_right = 355.0
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_uhgbb")
+
+[node name="bpw" type="Label" parent="." unique_id=1065580993]
+offset_left = 287.0
+offset_top = 450.0
+offset_right = 888.0
+offset_bottom = 509.0
+text = "Balas por leva++"
+label_settings = SubResource("LabelSettings_4fog5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bpw_button" type="Button" parent="bpw" unique_id=1106291020]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.5
+offset_top = -36.5
+offset_right = 297.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="atk_vel" type="Label" parent="." unique_id=1695151685]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -289.0
+offset_top = 26.0
+offset_right = 312.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Vel. de Atk++"
+label_settings = SubResource("LabelSettings_dcvl2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="atk_vel_button" type="Button" parent="atk_vel" unique_id=1868480718]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -7.0
+offset_right = 597.0
+offset_bottom = 68.0
+
+[connection signal="pressed" from="bpw/bpw_button" to="." method="_on_bpw_button_pressed"]
+[connection signal="pressed" from="atk_vel/atk_vel_button" to="." method="_on_atk_vel_button_pressed"]

@@ -13,7 +13,7 @@ size = Vector2(20, 20)
 script = ExtResource("1_cvnsp")
 bullet_speed = 300.0
 speed = 300.0
-bullets_per_wave = 8
+bullets_per_wave = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1418360419]
 shape = SubResource("RectangleShape2D_v0iea")
@@ -23,7 +23,6 @@ mesh = SubResource("QuadMesh_cvnsp")
 texture = SubResource("CanvasTexture_6t5aa")
 
 [node name="Timer" type="Timer" parent="." unique_id=1157590967]
-wait_time = 0.2
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

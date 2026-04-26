@@ -7,6 +7,7 @@ extends CharacterBody2D
 var player = null
 var current_hp
 
+
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	current_hp = enemy_max_hit_points
@@ -19,4 +20,5 @@ func _physics_process(delta: float) -> void:
 func _on_hitbox_collided_with_bullet() -> void:
 	current_hp -= 1
 	if current_hp <= 0:
+		player.experience_points += 5
 		queue_free()
